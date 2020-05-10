@@ -2,7 +2,6 @@
 #import <Cordova/NSDictionary+CordovaPreferences.h>
 
 #import "MigrateStorage.h"
-#import "FMDB.h"
 
 // Uncomment this to enable debug mode
 // #define DEBUG_MODE = 1;
@@ -80,8 +79,8 @@
 - (BOOL)changeProtocolEntriesinReferenceDB:(NSString *)path from:(NSString *)srcProtocolDir to:(NSString *)targetProtocolDir
 {
     logDebug(@"%@ changeProtocolEntriesinReferenceDB()", TAG);
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    return NO;
+    /* FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     // Can't do anything, just let this fail and let WkWebview create its own DB! :(
     if(![db open])
@@ -108,7 +107,7 @@
     
     logDebug(@"%@ end changeProtocolEntriesinReferenceDB()", TAG);
     
-    return success;
+    return success; */
 }
 
 - (BOOL)migrateWebSQL
